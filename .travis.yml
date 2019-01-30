@@ -9,36 +9,25 @@ env:
     - SAUCE_USERNAME=snay
     - TRAVIS_NODE_VERSION="6"
 
+language: node_js
+node_js:
+  - "6"
+  - "8"
+  - "10"
+
 matrix:
   include:
     - env: PLATFORM=browser-chrome
-      os: linux
-      language: node_js
-      node_js: "$TRAVIS_NODE_VERSION"
     - env: PLATFORM=browser-firefox
-      os: linux
-      language: node_js
-      node_js: "$TRAVIS_NODE_VERSION"
     - env: PLATFORM=browser-safari
-      os: linux
-      language: node_js
-      node_js: "$TRAVIS_NODE_VERSION"
     - env: PLATFORM=browser-edge
-      os: linux
-      language: node_js
-      node_js: "$TRAVIS_NODE_VERSION"
     - env: PLATFORM=ios-9.3
       os: osx
       osx_image: xcode7.3
-      language: node_js
-      node_js: "$TRAVIS_NODE_VERSION"
     - env: PLATFORM=ios-10.0
       os: osx
       osx_image: xcode7.3
-      language: node_js
-      node_js: "$TRAVIS_NODE_VERSION"
     - env: PLATFORM=android-4.4
-      os: linux
       language: android
       jdk: oraclejdk8
       android:
@@ -46,7 +35,6 @@ matrix:
           - tools
           - build-tools-26.0.2
     - env: PLATFORM=android-5.1
-      os: linux
       language: android
       jdk: oraclejdk8
       android:
@@ -54,7 +42,6 @@ matrix:
           - tools
           - build-tools-26.0.2
     - env: PLATFORM=android-6.0
-      os: linux
       language: android
       jdk: oraclejdk8
       android:
@@ -62,7 +49,6 @@ matrix:
           - tools
           - build-tools-26.0.2
     - env: PLATFORM=android-7.0
-      os: linux
       language: android
       jdk: oraclejdk8
       android:
