@@ -7,9 +7,9 @@ addons:
 env:
   global:
     - SAUCE_USERNAME=snay
-    - TRAVIS_NODE_VERSION="6"
 
 language: node_js
+node_js: "6"
 
 matrix:
   include:
@@ -54,7 +54,7 @@ matrix:
 
 before_install:
   # language: android has no Node.js installed, therfore it's needed to install it manually
-  - if [[ "$PLATFORM" =~ android ]]; then nvm install $TRAVIS_NODE_VERSION; fi
+  # - if [[ "$PLATFORM" =~ android ]]; then nvm install $TRAVIS_NODE_VERSION; fi
   - node --version
   - if [[ "$PLATFORM" =~ android ]]; then gradle --version; fi
   - if [[ "$PLATFORM" =~ ios ]]; then npm install -g ios-deploy; fi
