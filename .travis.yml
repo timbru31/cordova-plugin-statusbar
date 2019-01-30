@@ -9,6 +9,9 @@ env:
     - SAUCE_USERNAME=snay
     - TRAVIS_NODE_VERSION=6
 
+language: node_js
+node_js: "6"
+
 matrix:
   include:
     - env: PLATFORM=browser-chrome
@@ -51,7 +54,8 @@ matrix:
           - build-tools-26.0.2
 
 before_install:
-  - nvm install $TRAVIS_NODE_VERSION
+  # language: android has no Node.js installed, therfore it's needed to install it manually
+  - if [[ "$PLATFORM" =~ android ]]; then nvm install $TRAVIS_NODE_VERSION; fi
   - node --version
   - if [[ "$PLATFORM" =~ android ]]; then gradle --version; fi
   - if [[ "$PLATFORM" =~ ios ]]; then npm install -g ios-deploy; fi
