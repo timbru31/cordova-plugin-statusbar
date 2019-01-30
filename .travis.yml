@@ -12,6 +12,8 @@ env:
 language: node_js
 node_js:
   - "6"
+  - "8"
+  - "10"
 
 matrix:
   include:
@@ -70,5 +72,4 @@ install:
 
 script:
   - npm test
-  - node /tmp/paramedic/main.js --config pr/$PLATFORM --plugin $(pwd) --shouldUseSauce
-    --buildName travis-plugin-statusbar-$TRAVIS_JOB_NUMBER
+  - cordova-paramedic --config pr/$PLATFORM --plugin $(pwd) --shouldUseSauce --buildName travis-plugin-statusbar-$TRAVIS_JOB_NUMBER
